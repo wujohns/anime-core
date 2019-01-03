@@ -7,6 +7,6 @@
     "main": "anime-base.js",
     "dependencies": {},
     "devDependencies": {
-        "rollup": "^1.0.0"
+        "rollup": "^1.0.1"
     }
 }

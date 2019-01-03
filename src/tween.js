@@ -6,10 +6,37 @@
  */
 'use strict'
 
-import Utils from 'utils'
-import easings from 'easings'
+import Utils from './utils'
+import easings from './easings'
 
 const Tween = {
+    /**
+     * get function value
+     */
+    getFunctionValue: (val, animatable) => {
+        if (!Utils.is.fnc(val)) return val
+        return val(animatable.target, animatable.id, animatable.total)
+    },
+
+    /**
+     * normalize tween values
+     */
+    normalizeTweenValues: (tween, animatable) => {
+        const normalizedTween = {}
+        for (let p in tween) {
+            let value = tween[p]
+            let value = Tween.getFunctionValue(value, animatable)
+            if (Utils.is.arr(value)) {
+                value = value.map(val => Tween.getFunctionValue(val, animatable))
+                if (value.length === 1) value = value[0]
+            }
+            normalizedTween[p] = value
+        }
+        normalizedTween.duration = parseFloat(normalizedTween.duration)
+        normalizedTween.delay = parseFloat(normalizedTween.delay)
+        return normalizedTween
+    },
+
     /**
      * normalize tweens
      * prop: { name: 'transfromX', offset: 0, tweens: normalizePropertyTweens }
@@ -18,10 +45,13 @@ const Tween = {
      *      id: 0, total: targets.length 
      * }
      */
+    // TODO normalizeTweens 与 property 以及 normalizeTweenValues 可以合并
     normalizeTweens: (prop, animatable) => {
         let previousTween
         return prop.tweens.map(t => {
             // TODO 尝试整合一些逻辑
+            let tween = Tween.normalizeTweenValues(t, animatable)
+            const tweenValue = tween.value
         })
     },
 
