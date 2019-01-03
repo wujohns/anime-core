@@ -1,0 +1,12 @@
+{
+    "name": "anime-base",
+    "version": "0.0.1",
+    "description": "anime basic utils",
+    "author": "wujohns",
+    "license": "MIT",
+    "main": "anime-base.js",
+    "dependencies": {},
+    "devDependencies": {
+        "rollup": "^1.0.0"
+    }
+}
