@@ -20,14 +20,21 @@ const Tween = {
 
     /**
      * normalize tween values
+     * tween: normailizePropertyTweens
+     * animatable: {
+     *      target: { transfromX: 0 },
+     *      id: 0, total: targets.length    
+     * }
+     * return: 格式化后的 tween
      */
     normalizeTweenValues: (tween, animatable) => {
         const normalizedTween = {}
         for (let p in tween) {
             let value = tween[p]
-            let value = Tween.getFunctionValue(value, animatable)
+            // TODO 之后再支持 function 的注入
+            // value = Tween.getFunctionValue(value, animatable)
             if (Utils.is.arr(value)) {
-                value = value.map(val => Tween.getFunctionValue(val, animatable))
+                // value = value.map(val => Tween.getFunctionValue(val, animatable))
                 if (value.length === 1) value = value[0]
             }
             normalizedTween[p] = value
@@ -52,6 +59,10 @@ const Tween = {
             // TODO 尝试整合一些逻辑
             let tween = Tween.normalizeTweenValues(t, animatable)
             const tweenValue = tween.value
+            const originalValue = animatable.target[prop.name]
+            const previousValue = previousTween ? previousTween.to.original : originalValue
+            const from = Utils.is.arr(tweenValue) ? tweenValue[0] : previousValue
+            // TODO 可以考虑先移除fnc的注入部分
         })
     },
 
