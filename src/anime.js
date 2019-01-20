@@ -87,11 +87,12 @@ class Anime {
         let properties = [];
         const settings = Utils.mergeObjects(this.instanceSettings, this.tweenSettings)
         for (let p in params) {
+            // 这里会抽取 settings 以及 targets 之外的参数
             if (!settings.hasOwnProperty(p) && p !== 'targets') {
                 properties.push({
                     name: p,
                     offset: settings['offset'],
-                    tweens: Tween.normalizePropertyTweens(params[p])
+                    tweens: Tween.normalizePropertyTweens(params[p], this.tweenSettings)
                 })
             }
         }

@@ -57,12 +57,32 @@ const Tween = {
         let previousTween
         return prop.tweens.map(t => {
             // TODO 尝试整合一些逻辑
+            // 在 tween 的处理中移除了单位以及特殊计算的处理
             let tween = Tween.normalizeTweenValues(t, animatable)
             const tweenValue = tween.value
             const originalValue = animatable.target[prop.name]
             const previousValue = previousTween ? previousTween.to.original : originalValue
             const from = Utils.is.arr(tweenValue) ? tweenValue[0] : previousValue
-            // TODO 可以考虑先移除fnc的注入部分
+            const to = Utils.is.arr(tweenValue) ? tweenValue[1] : tweenValue
+            tween.from = {
+                original: from + '',
+                numbers: [ from ], strings: []
+            }
+            tween.to = {
+                original: to + '',
+                numbers: [ to ], strings: []
+            }
+            tween.start = previousTween ? previousTween.end : prop.offset
+            tween.end = tween.start + tween.delay + tween.duration
+            tween.easing = easings[tween.easing]
+            tween.elasticity = (1000 - tween.elasticity) / 1000 // 0 < elasticity < 1000
+            // 第一版中不处理 svg-path 与 color 的动画
+            tween.isPath = Utils.is.pth(tweenValue)
+            tween.isColor = Utils.is.col(tween.from.original)
+            if (tween.isColor) tween.round = 1
+
+            previousTween = tween
+            return tween
         })
     },
 
