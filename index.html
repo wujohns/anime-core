@@ -6,18 +6,20 @@
 <body>
     <script type="text/javascript" src="./anime.js"></script>
     <script type="text/javascript">
-        // anime({
-        //     targets: { cc: 100 },
-        //     cc: [200, 300, 400]
-        // })
-        let start
-        step = (timestamp) => {
-            start = start ? start : timestamp
-            console.log(timestamp - start)
-            start = timestamp
-            requestAnimationFrame(step)
-        }
-        requestAnimationFrame(step)
+        anime({
+            targets: { cc: 100 },
+            cc: [200, 300, 400],
+            loop: 5,
+            direction: 'reverse'
+        })
+        // let start
+        // step = (timestamp) => {
+        //     start = start ? start : timestamp
+        //     console.log(timestamp, timestamp - start)
+        //     start = timestamp
+        //     requestAnimationFrame(step)
+        // }
+        // requestAnimationFrame(step)
     </script>
 </body>
 </html>
