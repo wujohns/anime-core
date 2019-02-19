@@ -7,9 +7,9 @@
 'use strict'
 
 export default {
-    input: 'src/index.js',
+    input: 'lib/index.js',
     output: {
-        name: 'anime-base',
+        name: 'animeBase',
         file: 'anime-base.js',
         format: 'umd'
     }
