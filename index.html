@@ -7,6 +7,14 @@
     <script type="text/javascript" src="./anime-base.js"></script>
     <script type="text/javascript">
         console.log(typeof animeBase)
+        const kk = new animeBase({
+            dataProgress: {
+                aa: [100, 200, 300]
+            },
+            delay: 500,
+            easing: 'easeInOutQuad'
+        })
+        console.log(kk.animations)
         // anime({
         //     targets: { cc: 100 },
         //     cc: [200, 300, 400],

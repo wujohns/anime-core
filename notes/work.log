@@ -1,10 +1,6 @@
 animejs 抽取重构工作记录
 
 工作计划：
-1. 使用mock数据整理 engine 部分的实现
-
-1. normalizeTween 相关整理
-    1. 走通原始代码的 normalizeTween 完成
-    1. 对 normalizeTween 过程总结，简化
-
-1. anime 对象的初步建立
+1. anime 过程计算处理
+1. color 的计算处理
+1. svg path 的计算处理

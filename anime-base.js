@@ -24,10 +24,16 @@
          * }
          */
         getAnimations: (dataProgress, settings) => {
+            const animations = [];
             for (let key in dataProgress) {
                 const values = dataProgress[key];
                 const tweens = Tween.getTweens(values, settings);
+                animations.push({
+                    key,
+                    tweens
+                });
             }
+            return animations
         },
 
         /**
@@ -262,8 +268,11 @@
             // animations 的生成（核心为每个 animations 的 tweens）
             const dataProgress = config.dataProgress || {};
             this.animations = Tween.getAnimations(dataProgress, {
-                duration, delay
+                duration: this.duration,
+                delay: this.delay
             });
+
+            console.log(this.easing);
 
             // 运行时间判定
             this.now = 0;
