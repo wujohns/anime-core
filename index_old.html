@@ -5,9 +5,19 @@
 </head>
 <body>
     <div id="anim" style="height: 100px; width: 100px; background-color: brown"></div>
+    <div id="animb" style="height: 100px; width: 100px; background-color: brown"></div>
     <script type="text/javascript" src="./anime-base.js"></script>
+    <script type="text/javascript" src="./anime.js"></script>
     <script type="text/javascript">
-        const ele = document.getElementById('anim')
+        anime({
+          targets: '#anim',
+          delay: 500,
+          easing: 'easeInOutQuad',
+          translateX: [100, 200, 300],
+          backgroundColor: '#f00'
+        })
+
+        const ele = document.getElementById('animb')
         const kk = new animeBase({
             dataProgress: {
                 aa: [0, 100, 200, 300]
@@ -20,20 +30,6 @@
                 }
             }
         })
-        // anime({
-        //     targets: { cc: 100 },
-        //     cc: [200, 300, 400],
-        //     loop: 5,
-        //     direction: 'reverse'
-        // })
-        // let start
-        // step = (timestamp) => {
-        //     start = start ? start : timestamp
-        //     console.log(timestamp, timestamp - start)
-        //     start = timestamp
-        //     requestAnimationFrame(step)
-        // }
-        // requestAnimationFrame(step)
     </script>
 </body>
 </html>
