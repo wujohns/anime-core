@@ -4,8 +4,8 @@
     <title></title>
 </head>
 <body>
-    <div id="anim" style="height: 100px; width: 100px; background-color: brown"></div>
-    <div id="animb" style="height: 100px; width: 100px; background-color: brown"></div>
+    <div id="anim" style="height: 100px; width: 100px; background-color: #0f0"></div>
+    <div id="animb" style="height: 100px; width: 100px; background-color: #0f0"></div>
     <script type="text/javascript" src="./anime-base.js"></script>
     <script type="text/javascript" src="./anime.js"></script>
     <script type="text/javascript">
@@ -20,13 +20,15 @@
         const ele = document.getElementById('animb')
         const kk = new animeBase({
             dataProgress: {
-                aa: [0, 100, 200, 300]
+                aa: [0, 100, 200, 300],
+                color: ['#0f0', '#f00']
             },
             delay: 500,
             easing: 'easeInOutQuad',
             callbackMap: {
                 update: (target) => {
                     ele.style.transform = `translateX(${target.aa}px)`
+                    ele.style['background-color'] = target.color
                 }
             }
         })
