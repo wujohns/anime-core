@@ -48,7 +48,7 @@
             ],
             easing: 'easeOutQuad',
             duration: 2000,
-            loop: false
+            loop: 2
         })
 
         const ele = document.getElementById('anime-core')
@@ -64,6 +64,7 @@
             },
             easing: 'easeOutQuad',
             duration: 2000,
+            loop: 2,
             callbackMap: {
                 update: (target) => {
                     ele.setAttribute('points', target.points)

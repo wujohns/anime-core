@@ -35,10 +35,10 @@
       strokeDashoffset: [anime.setDashoffset, 0],
       easing: 'easeInOutSine',
       duration: 1500,
-      delay: function(el, i) { return i * 250 },
-      direction: 'alternate',
+      // delay: function(el, i) { return i * 250 },
+      direction: 'reverse',
       // direction: 'reverse',
-      loop: 3
+      loop: 2
     })
     
     const elbs = document.getElementsByClassName('elb')
@@ -51,7 +51,9 @@
         },
         easing: 'easeInOutSine',
         duration: 1500,
-        delay: i * 250,
+        // delay: i * 250,
+        loop: 2,
+        direction: 'reverse',
         callbackMap: {
           update: (target) => {
             elb.style['stroke-dashoffset'] = `${target.strokeDashoffset}px`

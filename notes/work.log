@@ -1,17 +1,10 @@
 animejs 抽取重构工作记录
 
 工作计划：
-1. 增加 direction 与 loop 参数  
-1. 增加 complete 回调  
+1. 增加结束时的 delay
 1. 增加 play/pause restart reverse 流程控制
-
-当前处理：
-direction 细分
-normal：正常处理
-reverse: 反向处理
-alternate：正反向切换处理
-
-前置条件：
-解决 normal 版本的 loop 处理
-
 1. strategy 策略整理（需要时进行）
+
+当前推进细节；
+1. pause 机制的实现
+1. restart 机制的实现
