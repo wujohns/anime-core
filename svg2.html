@@ -32,6 +32,9 @@
         </polygon>
     </g>
     </svg>
+    <button id="play">play</button>
+    <button id="pause">pause</button>
+    <button id="reverse">reverse</button>
     <script type="text/javascript" src="./anime-base.js"></script>
     <script type="text/javascript" src="./anime.js"></script>
     <script type="text/javascript">
@@ -48,11 +51,11 @@
             ],
             easing: 'easeOutQuad',
             duration: 2000,
-            loop: 2
+            loop: true
         })
 
         const ele = document.getElementById('anime-core')
-        new animeBase({
+        const animeObj = new animeBase({
             dataProgress: {
                 points: [
                     '70 24 119.574 60.369 100.145 117.631 50.855 101.631 3.426 54.369',
@@ -64,13 +67,20 @@
             },
             easing: 'easeOutQuad',
             duration: 2000,
-            loop: 2,
+            loop: true,
             callbackMap: {
                 update: (target) => {
                     ele.setAttribute('points', target.points)
                 }
-            }
+            },
+            autoPlay: false
         })
+        const playBtn = document.getElementById('play')
+        const pauseBtn = document.getElementById('pause')
+        const reverseBtn = document.getElementById('pause')
+        playBtn.addEventListener('click', () => animeObj.play())
+        pauseBtn.addEventListener('click', () => animeObj.pause())
+        reverseBtn.addEventListener('click', () => animeObj.reverse())
     </script>
 </body>
 </html>
