@@ -1,9 +1,0 @@
-animejs 抽取重构工作记录
-
-工作计划：
-1. 增加 play/pause restart reverse 流程控制
-1. strategy 策略整理（需要时进行）
-
-当前推进细节；
-1. pause 机制的实现
-1. restart 机制的实现
