@@ -1,1 +1,2 @@
-# anime.js 结构解析
+# anime-core
+
