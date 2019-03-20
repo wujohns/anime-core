@@ -1,3 +1,4 @@
 # 相应的 build
 build:
-	rollup -c
+	npm install
+	npm run build

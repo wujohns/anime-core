@@ -1,10 +1,13 @@
 {
-    "name": "anime-base",
+    "name": "anime-core",
     "version": "0.0.1",
     "description": "anime basic utils",
     "author": "wujohns",
     "license": "MIT",
-    "main": "anime-base.js",
+    "main": "anime-core.js",
+    "scripts": {
+        "build": "rollup -c"
+    },
     "dependencies": {},
     "devDependencies": {
         "rollup": "^1.0.1"
