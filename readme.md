@@ -1,5 +1,5 @@
 # anime-core
-`anime-core` 是将 [anime.js](https://github.com/juliangarnier/anime/) 核心逻辑做抽取并进行分析的一个项目
+`anime-core` 是将 [anime.js](https://github.com/juliangarnier/anime/) 核心逻辑做抽取并进行分析的一个项 目
 
 ## 项目结构
 ```
