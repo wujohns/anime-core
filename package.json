@@ -10,6 +10,6 @@
     },
     "dependencies": {},
     "devDependencies": {
-        "rollup": "^1.0.1"
+        "rollup": "^3.29.5"
     }
 }
